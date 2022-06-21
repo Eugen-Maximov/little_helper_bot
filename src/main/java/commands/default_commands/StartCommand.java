@@ -16,7 +16,7 @@ public class StartCommand extends CommandService {
 
     @Override
     public void execute(AbsSender absSender, User user, Chat chat, String[] strings) {
-        Long userName = user.getId();
-        sendAnswer(absSender, chat.getId(), this.getCommandIdentifier(), userName, Messages.startMessage);
+        Long userId = user.getId();
+        sendAnswer(absSender, chat.getId(), this.getCommandIdentifier(), userId, Messages.startMessage);
     }
 }

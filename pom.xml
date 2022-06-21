@@ -39,5 +39,10 @@
             <artifactId>rest-assured</artifactId>
             <version>4.4.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-model</artifactId>
+            <version>3.3.9</version>
+        </dependency>
     </dependencies>
 </project>

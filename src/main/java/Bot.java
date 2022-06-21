@@ -1,5 +1,6 @@
 import commands.NoCommand;
 import commands.default_commands.HelpCommand;
+import commands.default_commands.SettingsCommand;
 import commands.default_commands.StartCommand;
 import commands.WeatherCommand;
 import org.telegram.telegrambots.extensions.bots.commandbot.TelegramLongPollingCommandBot;
@@ -23,6 +24,7 @@ public class Bot extends TelegramLongPollingCommandBot {
         this.noCommand = new NoCommand();
         register(new StartCommand("start", "start"));
         register(new HelpCommand("help", "help"));
+        register(new SettingsCommand("settings", "settings"));
         register(new WeatherCommand("weather", "actual weather"));
     }
 

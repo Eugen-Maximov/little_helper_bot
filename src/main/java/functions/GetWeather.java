@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class GetWeather {
 
-    private static final String weatherUrl = "http://api.weatherstack.com/forecast";
+    private static final String weatherUrl = "http://api.weatherstack.com/current";
     private static final String apiToken = System.getenv("API_TOKEN");
     private static final Map<Long, String> locations = Location.getAllLocations();
     private static final Map<String, String> requestParams = new HashMap<>();
@@ -27,6 +27,6 @@ public class GetWeather {
         requestParams.put("city", locations.get(userId));
         Request request = new Request(weatherUrl, requestParams);
         Response response = request.sendRequest();
-        return response.getStatusCode() == 200;
+        return response.getBody().jsonPath().getBoolean("success");
     }
 }

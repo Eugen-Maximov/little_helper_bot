@@ -6,16 +6,15 @@ import org.telegram.telegrambots.meta.api.objects.Chat;
 import org.telegram.telegrambots.meta.api.objects.User;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 
+public class SettingsCommand extends CommandService {
 
-public class HelpCommand extends CommandService {
-
-    public HelpCommand(String command, String description) {
+    public SettingsCommand(String command, String description) {
         super(command, description);
     }
 
     @Override
     public void execute(AbsSender absSender, User user, Chat chat, String[] strings) {
         Long userId = user.getId();
-        sendAnswer(absSender, chat.getId(), this.getCommandIdentifier(), userId, Messages.helpMessage);
+        sendAnswer(absSender, chat.getId(), this.getCommandIdentifier(), userId, Messages.Settings.startSettingsMessage);
     }
 }
