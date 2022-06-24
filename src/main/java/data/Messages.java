@@ -16,10 +16,11 @@ public class Messages {
             "1️⃣ /weather - можно получить информацию о погоде" +
             "\n\n\nВерсия бота: " + version;
     public static String cantUnderstandMessage = "Простите, я не понимаю вас. Возможно, Вам поможет /help";
+    public static String incorrectRequest = "Кажется что-то пошло не так. Не удается распознать ваш город. Попробуйте снова чуть попозже";
 
     public static Weather weatherMessages;
     public static class Weather {
-        public static String enterCityMessage = "Введите название города";
+        public static String enterCityMessage = "Отправьте свою геопозицию через Телеграм";
         public static String cityAlreadyExistMessage = "Город уже есть. Ваш город: ";
     }
 
@@ -32,5 +33,12 @@ public class Messages {
     public static Settings settingsMessages;
     public static class Settings {
         public static String startSettingsMessage = "Добро пожаловать в настройки. ";
+    }
+
+    public static class Input {
+        public static String undefinedInput = "Не могу понять, куда записать ваши данные\uD83E\uDD14" +
+                "\nМожет попробуем снова?";
+        public static String tryAgainMessage = "Пожалуйста, попробуйте снова!";
+        public static String unregisterMessage = "Кажется я вас не знаю или забыл\uD83D\uDC40 \nКликни на /start, познакомимся!";
     }
 }

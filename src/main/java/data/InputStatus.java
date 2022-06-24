@@ -3,6 +3,8 @@ package data;
 public enum InputStatus {
 
     EMPTY,
-    LOCATION,
-    NOTE
+    CREATE_LOCATION,
+    NOTE,
+    CHANGE_LOCATION,
+    UNREGISTER
 }
