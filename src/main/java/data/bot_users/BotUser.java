@@ -17,6 +17,7 @@ public class BotUser extends User {
     private final Double[] userLocation = new Double[2];
     private String userCity;
     private String userRegion;
+    private Integer userCityId;
     private InputStatus inputStatus;
 
     public Long getUserId() {
@@ -91,6 +92,15 @@ public class BotUser extends User {
         return this;
     }
 
+    public Integer getUserCityId() {
+        return userCityId;
+    }
+
+    public BotUser setUserCityId(Integer userCityId) {
+        this.userCityId = userCityId;
+        return this;
+    }
+
     public String getUserRegion() {
         return userRegion;
     }
@@ -140,6 +150,7 @@ public class BotUser extends User {
         setUserLocation(coordinates[0], coordinates[1]);
         setUserCity(city);
         setUserRegion(region);
+        //setUserCityId(cityId);
         return this;
     }
 }

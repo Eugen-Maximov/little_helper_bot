@@ -16,18 +16,22 @@ public class Messages {
             "1️⃣ /weather - можно получить информацию о погоде" +
             "\n\n\nВерсия бота: " + version;
     public static String cantUnderstandMessage = "Простите, я не понимаю вас. Возможно, Вам поможет /help";
-    public static String incorrectRequest = "Кажется что-то пошло не так. Не удается распознать ваш город. Попробуйте снова чуть попозже";
+    public static String incorrectRequest = "\uD83D\uDE31Кажется что-то пошло не так: " +
+            "\nНе получается получить ответ от сервера. " +
+            "\nПопробуйте поменять параметры или попробуйте чуть попозже.";
+    public static String divider = "\n\n-----------------------\n\n";
 
-    public static Weather weatherMessages;
     public static class Weather {
         public static String enterCityMessage = "Отправьте свою геопозицию через Телеграм";
         public static String cityAlreadyExistMessage = "Город уже есть. Ваш город: ";
+
+        public static String startWeatherActualMessage = "Погода сейчас: \n";
     }
 
     public static Locations locationsMessages;
     public static class Locations {
         public static String incorrectLocation = "Не удалось получить погоду по выбранной локации. Проверьте указанные данные или попробуйте позже.";
-        public static String correctLocation = "Локация установлена успешно! \nВы ввели: ";
+        public static String correctLocation = "Отлично, теперь у вас есть местоположение! \nВы ввели: ";
     }
 
     public static Settings settingsMessages;

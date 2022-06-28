@@ -3,6 +3,7 @@ package helpers;
 import data.InputStatus;
 import data.Messages;
 import data.bot_users.BotUser;
+import modules.weather.GetWeather;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 import static data.InputStatus.EMPTY;
@@ -18,7 +19,7 @@ public class InputHelper {
         user.setInputStatus(EMPTY);
     }
 
-    public static InputStatus getActualStatus(BotUser user) { //TODO make private
+    public static InputStatus getActualStatus(BotUser user) { //TODO make private after end of debug
         if (user == null) return UNREGISTER;
         return user.getInputStatus();
     }

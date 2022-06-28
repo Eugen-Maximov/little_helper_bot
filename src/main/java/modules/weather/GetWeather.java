@@ -1,28 +1,42 @@
 package modules.weather;
 
+import data.Messages;
+import data.bot_users.BotUser;
+import helpers.Request;
+import io.restassured.response.Response;
+import org.telegram.telegrambots.meta.api.objects.Message;
+
 import java.util.HashMap;
 import java.util.Map;
 
+import static data.Environments.API_TOKEN;
+
 public class GetWeather {
 
-    private static final String weatherUrl = "http://api.weatherstack.com/current";
-    private static final String apiToken = System.getenv("API_TOKEN");
-    //private static final Map<Long, String> locations = Location.getAllLocations();
-    private static final Map<String, String> requestParams = new HashMap<>();
+    private final String URL = "https://api.openweathermap.org/data/2.5/forecast";
+    private final String apiToken = System.getenv(API_TOKEN.getEnvName());
+    private final Map<String, String> query = new HashMap<>();
 
-    static {
-        requestParams.put("access_key", apiToken);
-        requestParams.put("language", "ru");
-        requestParams.put("forecast_days", "1");
-        requestParams.put("interval", "12");
-        requestParams.put("units", "metrics");
+    public String getWeather(BotUser user) {
+        return requestWeather(user);
     }
 
+    private void setQuery(BotUser user) {
+        query.put("appId", apiToken);
+        query.put("lat", String.valueOf(user.getUserLat()));
+        query.put("lon", String.valueOf(user.getUserLon()));
+        query.put("units", "metric");
+        query.put("lang", user.getUserLocale());
+    }
 
-//    public static boolean canFindWeather(Long userId) {
-//        requestParams.put("city", locations.get(userId));
-//        Request request = new Request(weatherUrl, requestParams);
-//        Response response = request.sendRequest();
-//        return response.getBody().jsonPath().getBoolean("success");
-//    }
+    private String requestWeather(BotUser user) {
+        setQuery(user);
+        Response response = new Request(URL, query).sendRequest();
+        if (response.getStatusCode() != 200) {
+            return Messages.incorrectRequest;
+        } else {
+            return new WeatherParser(response).parseWeather();
+        }
+    }
+
 }

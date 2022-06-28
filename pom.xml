@@ -6,7 +6,7 @@
 
     <groupId>org.example</groupId>
     <artifactId>bot_assistant</artifactId>
-    <version>0.0.2-dev</version>
+    <version>0.0.3-dev</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -39,6 +39,7 @@
             <artifactId>rest-assured</artifactId>
             <version>4.4.0</version>
         </dependency>
+        <!-- Utils -->
         <dependency>
             <groupId>org.apache.maven</groupId>
             <artifactId>maven-model</artifactId>

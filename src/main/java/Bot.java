@@ -10,6 +10,7 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import static data.Environments.TELEGRAM_TOKEN;
 import static data.bot_users.UsersContainer.getUser;
 
 public class Bot extends TelegramLongPollingCommandBot {
@@ -21,7 +22,7 @@ public class Bot extends TelegramLongPollingCommandBot {
 
     public Bot() {
         this.BOT_NAME = "Dex";
-        this.BOT_TOKEN = System.getenv("BOT_TOKEN");
+        this.BOT_TOKEN = System.getenv(TELEGRAM_TOKEN.getEnvName());
         this.noCommand = new NoCommand();
         register(new StartCommand("start", "start"));
         register(new HelpCommand("help", "help"));
