@@ -25,6 +25,7 @@ public class Location {
     public String inputLocation(Message message, BotUser user) {
         String result;
         closeInput(user);
+        user.setUserChatID(message.getChatId());
         if (message.hasLocation()) {
             setQuery(
                     message.getLocation().getLatitude(),

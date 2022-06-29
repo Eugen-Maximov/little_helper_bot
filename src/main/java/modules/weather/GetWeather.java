@@ -4,7 +4,6 @@ import data.Messages;
 import data.bot_users.BotUser;
 import helpers.Request;
 import io.restassured.response.Response;
-import org.telegram.telegrambots.meta.api.objects.Message;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -27,7 +27,7 @@ public class StartCommand extends CommandService {
         sendAnswer(absSender, chat.getId(), this.getCommandIdentifier(), user, Messages.startMessage);
     }
 
-    private void createMessage(AbsSender absSender, BotUser user, Chat chat, String[] strings)  {
+    private void createMessage(AbsSender absSender, BotUser user, Chat chat, String[] strings) {
 
     }
 }

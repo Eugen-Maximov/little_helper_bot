@@ -19,6 +19,7 @@ public class BotUser extends User {
     private String userRegion;
     private Integer userCityId;
     private InputStatus inputStatus;
+    private Long userChatID;
 
     public Long getUserId() {
         return userId;
@@ -124,12 +125,22 @@ public class BotUser extends User {
         return this;
     }
 
-    /**Set up bot user:
+    public Long getUserChatID() {
+        return userChatID;
+    }
+
+    public BotUser setUserChatID(Long userChatID) {
+        this.userChatID = userChatID;
+        return this;
+    }
+
+    /**
+     * Set up bot user:
      * Params:
      * - org.telegram.telegrambots.meta.api.objects.User
      * Return:
      * - package data.bot_users.BotUser
-     * **/
+     **/
     public BotUser registerUser(User user) {
         setUserId(user.getId());
         setUserFirstName(user.getFirstName());

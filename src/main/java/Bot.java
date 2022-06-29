@@ -59,7 +59,6 @@ public class Bot extends TelegramLongPollingCommandBot {
     @Override
     public void onRegister() {
         super.onRegister();
-        //this.user = new BotUser();
     }
 
     private void setAnswer(Long chatId, BotUser user, String text) {
@@ -68,6 +67,21 @@ public class Bot extends TelegramLongPollingCommandBot {
         answer.setChatId(chatId.toString());
         try {
             execute(answer);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Bot getBot() {
+        return this;
+    }
+
+    public void sendScheduledMessage(BotUser user, String text) {
+        SendMessage message = new SendMessage();
+        message.setText(text);
+        message.setChatId(String.valueOf(user.getUserChatID()));
+        try {
+            execute(message);
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }

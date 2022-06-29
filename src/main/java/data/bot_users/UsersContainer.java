@@ -16,6 +16,10 @@ public class UsersContainer {
         }
     }
 
+    public static HashMap<User, BotUser> getUsers() {
+        return users;
+    }
+
     public static void deleteUser(User user) {
         users.remove(user);
     }

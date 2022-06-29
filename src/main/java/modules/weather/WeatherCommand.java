@@ -26,7 +26,7 @@ public class WeatherCommand extends CommandService {
         createMessage(absSender, user, chat, strings);
     }
 
-    private void createMessage(AbsSender absSender, BotUser user, Chat chat, String[] strings)  {
+    private void createMessage(AbsSender absSender, BotUser user, Chat chat, String[] strings) {
         if (!user.isHaveLocation()) {
             sendAnswer(absSender, chat.getId(), this.getCommandIdentifier(), user,
                     Messages.Weather.enterCityMessage);
@@ -37,7 +37,6 @@ public class WeatherCommand extends CommandService {
         } else {
             sendAnswer(absSender, chat.getId(), this.getCommandIdentifier(), user,
                     Messages.Weather.cityAlreadyExistMessage + Arrays.toString(user.getUserLocation()));
-            //TODO: send request
         }
     }
 }
