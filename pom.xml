@@ -6,7 +6,7 @@
 
     <groupId>org.example</groupId>
     <artifactId>bot_assistant</artifactId>
-    <version>0.0.5-test</version>
+    <version>0.1.0-test</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -83,6 +83,11 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.heroku.sdk</groupId>
+                <artifactId>heroku-maven-plugin</artifactId>
+                <version>3.0.3</version>
             </plugin>
         </plugins>
     </build>
