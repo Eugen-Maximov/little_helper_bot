@@ -1,12 +1,13 @@
-package default_commands;
+package commands;
 
 import data.Messages;
-import data.bot_users.BotUser;
+import main.CommandService;
+import main.bot_users.BotUser;
 import org.telegram.telegrambots.meta.api.objects.Chat;
 import org.telegram.telegrambots.meta.api.objects.User;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 
-import static data.bot_users.UsersContainer.getUser;
+import static main.bot_users.UsersContainer.getUser;
 
 
 public class HelpCommand extends CommandService {

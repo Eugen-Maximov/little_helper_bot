@@ -1,14 +1,15 @@
-package default_commands;
+package commands;
 
-import data.bot_users.BotUser;
-import data.bot_users.UsersContainer;
+import main.CommandService;
+import main.bot_users.BotUser;
+import main.bot_users.UsersContainer;
 import org.telegram.telegrambots.meta.api.objects.Chat;
 import org.telegram.telegrambots.meta.api.objects.User;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 
 import java.util.Arrays;
 
-import static data.bot_users.UsersContainer.getUser;
+import static main.bot_users.UsersContainer.getUser;
 import static helpers.InputHelper.getActualStatus;
 
 public class DebugCommand extends CommandService {

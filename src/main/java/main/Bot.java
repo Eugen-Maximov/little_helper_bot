@@ -1,9 +1,11 @@
-import data.bot_users.BotUser;
-import default_commands.DebugCommand;
-import default_commands.HelpCommand;
-import default_commands.NoCommand;
-import default_commands.StartCommand;
-import modules.weather.WeatherCommand;
+package main;
+
+import main.bot_users.BotUser;
+import commands.DebugCommand;
+import commands.HelpCommand;
+import commands.NoCommand;
+import commands.StartCommand;
+import commands.WeatherCommand;
 import org.telegram.telegrambots.extensions.bots.commandbot.TelegramLongPollingCommandBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
@@ -11,7 +13,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import static data.Environments.TELEGRAM_TOKEN;
-import static data.bot_users.UsersContainer.getUser;
+import static main.bot_users.UsersContainer.getUser;
 
 public class Bot extends TelegramLongPollingCommandBot {
 
@@ -61,7 +63,7 @@ public class Bot extends TelegramLongPollingCommandBot {
         super.onRegister();
     }
 
-    private void setAnswer(Long chatId, BotUser user, String text) {
+    public void setAnswer(Long chatId, BotUser user, String text) {
         SendMessage answer = new SendMessage();
         answer.setText(text);
         answer.setChatId(chatId.toString());
@@ -74,16 +76,5 @@ public class Bot extends TelegramLongPollingCommandBot {
 
     public Bot getBot() {
         return this;
-    }
-
-    public void sendScheduledMessage(BotUser user, String text) {
-        SendMessage message = new SendMessage();
-        message.setText(text);
-        message.setChatId(String.valueOf(user.getUserChatID()));
-        try {
-            execute(message);
-        } catch (TelegramApiException e) {
-            e.printStackTrace();
-        }
     }
 }

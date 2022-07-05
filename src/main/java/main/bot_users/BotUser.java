@@ -1,10 +1,9 @@
-package data.bot_users;
+package main.bot_users;
 
 import data.InputStatus;
 import org.telegram.telegrambots.meta.api.objects.User;
 
 import static data.InputStatus.EMPTY;
-import static data.bot_users.UsersContainer.addUser;
 
 public class BotUser extends User {
 
@@ -149,7 +148,7 @@ public class BotUser extends User {
         setUserLocale(user.getLanguageCode());
         if (this.user != null) setUser(user);
         setInputStatus(EMPTY);
-        addUser(user, this);
+        UsersContainer.addUser(user, this);
         return this;
     }
 

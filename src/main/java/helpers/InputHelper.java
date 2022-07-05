@@ -2,8 +2,7 @@ package helpers;
 
 import data.InputStatus;
 import data.Messages;
-import data.bot_users.BotUser;
-import modules.weather.GetWeather;
+import main.bot_users.BotUser;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 import static data.InputStatus.EMPTY;

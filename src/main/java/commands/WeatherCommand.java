@@ -1,8 +1,9 @@
-package modules.weather;
+package commands;
 
 import data.Messages;
-import data.bot_users.BotUser;
-import default_commands.CommandService;
+import main.bot_users.BotUser;
+import main.CommandService;
+import modules.weather.GetWeather;
 import org.telegram.telegrambots.meta.api.objects.Chat;
 import org.telegram.telegrambots.meta.api.objects.User;
 import org.telegram.telegrambots.meta.bots.AbsSender;
@@ -10,7 +11,7 @@ import org.telegram.telegrambots.meta.bots.AbsSender;
 import java.util.Arrays;
 
 import static data.InputStatus.CREATE_LOCATION;
-import static data.bot_users.UsersContainer.getUser;
+import static main.bot_users.UsersContainer.getUser;
 import static helpers.InputHelper.openInput;
 
 public class WeatherCommand extends CommandService {

@@ -1,7 +1,7 @@
 package modules.weather;
 
 import data.Messages;
-import data.bot_users.BotUser;
+import main.bot_users.BotUser;
 import helpers.Request;
 import io.restassured.response.Response;
 
@@ -37,5 +37,4 @@ public class GetWeather {
             return new WeatherParser(response).parseWeather();
         }
     }
-
 }

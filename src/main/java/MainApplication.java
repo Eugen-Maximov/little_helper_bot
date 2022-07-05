@@ -1,3 +1,5 @@
+import main.Bot;
+import modules.DailyMessage;
 import org.quartz.CronScheduleBuilder;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
@@ -26,14 +28,14 @@ public class MainApplication {
 
     private static void startDailyMessaging() throws SchedulerException {
         /* Instantiate the job that will call the bot function */
-        JobDetail jobSendAd = JobBuilder.newJob(ScheduledWeatherForecast.class)
+        JobDetail jobSendAd = JobBuilder.newJob(DailyMessage.class)
                 .withIdentity("sendWeather")
                 .build();
         /* Define a trigger for the call */
         Trigger trigger = TriggerBuilder
                 .newTrigger()
                 .withIdentity("everyMorningAt10")
-                .withSchedule(CronScheduleBuilder.dailyAtHourAndMinute(11, 0))
+                .withSchedule(CronScheduleBuilder.dailyAtHourAndMinute(9, 0))
                 .build();
         /* Create a scheduler to manage triggers */
         Scheduler scheduler = new StdSchedulerFactory().getScheduler();

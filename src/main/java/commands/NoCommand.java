@@ -1,6 +1,7 @@
-package default_commands;
+package commands;
 
-import data.bot_users.BotUser;
+import main.CommandService;
+import main.bot_users.BotUser;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 import static helpers.InputHelper.input;

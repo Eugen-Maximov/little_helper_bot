@@ -6,7 +6,7 @@
 
     <groupId>org.example</groupId>
     <artifactId>bot_assistant</artifactId>
-    <version>0.0.4-dev</version>
+    <version>0.0.5-dev</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -50,6 +50,12 @@
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
             <version>2.3.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.4.0</version>
         </dependency>
     </dependencies>
 </project>

@@ -1,7 +1,7 @@
 package helpers;
 
 import data.Messages;
-import data.bot_users.BotUser;
+import main.bot_users.BotUser;
 import io.restassured.response.Response;
 import modules.weather.GetWeather;
 import org.telegram.telegrambots.meta.api.objects.Message;

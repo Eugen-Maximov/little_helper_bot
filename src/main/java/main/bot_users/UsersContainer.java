@@ -1,9 +1,10 @@
-package data.bot_users;
+package main.bot_users;
 
 import org.telegram.telegrambots.meta.api.objects.User;
 
 import java.util.HashMap;
 
+//TODO change to normal DB
 public class UsersContainer {
 
     private static final HashMap<User, BotUser> users = new HashMap<>();
