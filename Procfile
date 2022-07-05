@@ -1,1 +1,1 @@
-worker: java -cp MainApplication
+worker: java --class-path MainApplication
