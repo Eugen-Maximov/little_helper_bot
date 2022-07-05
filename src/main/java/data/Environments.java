@@ -8,7 +8,7 @@ public enum Environments {
     DB_USER("DB_USER"),
     DB_PASS("DB_PASS");
 
-    private String envName;
+    private final String envName;
 
     Environments(String envName) {
         this.envName = envName;
