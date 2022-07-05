@@ -1,3 +1,0 @@
-telegram:
-  api-url: "https://api.telegram.org/"
-  webhook-path: "https://littlehelperbot.herokuapp.com/"
