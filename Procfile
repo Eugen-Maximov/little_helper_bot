@@ -1,1 +1,1 @@
-worker: java ./target/classes: /Users/e.maximov/Desktop/projects/study/bot_assistant/src/main/java/MainApplication.java
+worker: java -cp MainApplication
