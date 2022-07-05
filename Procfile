@@ -1,1 +1,1 @@
-worker: java ./target/classes:./target/dependency/* MainApplication
+worker: java ./target/classes: /Users/e.maximov/Desktop/projects/study/bot_assistant/src/main/java/MainApplication.java
