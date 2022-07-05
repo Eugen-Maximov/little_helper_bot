@@ -1,1 +1,1 @@
-worker: java ./target/classes/MainApplication
+worker: java ./target/classes:./target/dependency/* MainApplication
