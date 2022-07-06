@@ -38,7 +38,7 @@ public class ClothesMessageConstructor {
         double temp = 0;
         int parts = 6;
         for (int i = 0; i < parts; i++) {
-            temp += Double.parseDouble(response.jsonPath().getString("list[" + i + "].dt_txt"));
+            temp += Double.parseDouble(response.jsonPath().getString("list[" + i + "].main.temp"));
         }
         return String.valueOf(temp / parts);
     }
