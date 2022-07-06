@@ -24,7 +24,7 @@ public class Bot extends TelegramLongPollingCommandBot {
 
     public Bot() {
         this.BOT_NAME = "Dex";
-        this.BOT_TOKEN = System.getenv(TELEGRAM_TOKEN.getEnvName());
+        this.BOT_TOKEN = System.getenv(TELEGRAM_TOKEN.getName());
         this.noCommand = new NoCommand();
         register(new StartCommand("start", "start"));
         register(new HelpCommand("help", "help"));

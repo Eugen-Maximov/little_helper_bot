@@ -34,7 +34,7 @@ public class WeatherCommand extends CommandService {
             openInput(user, CREATE_LOCATION);
         } else if (user.isHaveLocation()) {
             sendAnswer(absSender, chat.getId(), this.getCommandIdentifier(), user,
-                    new GetWeather().getWeather(user));
+                    new GetWeather().getWeatherForMessage(user));
         } else {
             sendAnswer(absSender, chat.getId(), this.getCommandIdentifier(), user,
                     Messages.Weather.cityAlreadyExistMessage + Arrays.toString(user.getUserLocation()));

@@ -1,10 +1,10 @@
 # Little Helper Bot
 ***
 ### To Be Done:
-* **version 0.1** - Weather Info:
-  * Save user location
-  * Get weather by user location
-  * Send weather information to the user daily
+* **~~version 0.1~~** - ~~Weather Info~~:
+  * ~~Save user location~~
+  * ~~Get weather by user location~~
+  * ~~Send weather information to the user daily~~
 * **version 0.2** - What to wear:
   * Determine clothes according to the weather
   * Send info to the users daily

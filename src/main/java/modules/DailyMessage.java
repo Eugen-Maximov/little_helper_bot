@@ -2,6 +2,7 @@ package modules;
 
 import main.bot_users.BotUser;
 import main.Bot;
+import modules.clothes.ClothesMessageConstructor;
 import modules.weather.GetWeather;
 import org.quartz.Job;
 import org.quartz.JobExecutionContext;
@@ -22,7 +23,7 @@ public class DailyMessage implements Job {
                 bot.setAnswer(
                         user.getUserChatID(),
                         user,
-                        new GetWeather().getWeather(user)
+                        new GetWeather().getWeatherForMessage(user)
                 );
                 try {
                     Thread.sleep(1000);

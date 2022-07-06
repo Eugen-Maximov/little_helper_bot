@@ -18,7 +18,7 @@ import static helpers.InputHelper.openInput;
 public class Location {
 
     private final String URL = "http://api.openweathermap.org/geo/1.0/reverse";
-    private final String geoToken = System.getenv(API_TOKEN.getEnvName());
+    private final String geoToken = System.getenv(API_TOKEN.getName());
     private final Map<String, String> query = new HashMap<>();
 
 
@@ -36,7 +36,7 @@ public class Location {
                     message.getLocation().getLongitude()
             );
             result += Messages.divider;
-            result += new GetWeather().getWeather(user);
+            result += new GetWeather().getWeatherForMessage(user);
         } else {
             result = "Немного не похоже на геопозицию." + Messages.Input.tryAgainMessage;
             openInput(user, CREATE_LOCATION);

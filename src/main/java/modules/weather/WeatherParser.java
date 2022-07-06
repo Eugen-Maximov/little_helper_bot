@@ -15,10 +15,9 @@ public class WeatherParser {
 
     public WeatherParser(Response response) {
         this.response = response;
-
     }
 
-    public String parseWeather() {
+    public String parseWeatherForMessage() {
         builder.append(Messages.Weather.startWeatherActualMessage);
         builder.append(parseTime());
         builder.append(parseTemperature());
