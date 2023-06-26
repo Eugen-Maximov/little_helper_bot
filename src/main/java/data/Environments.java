@@ -4,7 +4,7 @@ public enum Environments {
 
     TELEGRAM_TOKEN("BOT_TOKEN"),
     API_TOKEN("API_TOKEN"),
-    DB_URI("DB_URI");
+    ADMIN("ADMIN");
 
     private final String envName;
 
@@ -14,5 +14,9 @@ public enum Environments {
 
     public String getName() {
         return envName;
+    }
+
+    public static String getEnvValue(Environments envName) {
+        return System.getenv(envName.getName());
     }
 }

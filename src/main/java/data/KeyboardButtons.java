@@ -1,18 +1,34 @@
 package data;
 
+import main.ReplyKeyboardMaker;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
+
+import java.util.Arrays;
+
 public enum KeyboardButtons {
 
-    //main menu
-    HELP_BUTTON ("/help"),
-    WEATHER_BUTTON ("/weather");
+    SHOW_NOTE(new KeyboardButton("Заметки"));
 
-    final String buttonName;
+    private final KeyboardButton button;
 
-    KeyboardButtons(String buttonName) {
-        this.buttonName = buttonName;
+    KeyboardButtons(KeyboardButton button) {
+        this.button = button;
     }
 
-    public String getButtonName() {
-        return buttonName;
+    public KeyboardButton getButton() {
+        return button;
+    }
+
+    public String getButtonText() {
+        return button.getText();
+    }
+
+    public static ReplyKeyboardMarkup getMenu() {
+        ReplyKeyboardMaker keyboardMaker = new ReplyKeyboardMaker();
+        return keyboardMaker.createKeyboard(
+                Arrays.asList(
+                        SHOW_NOTE.getButton())
+        );
     }
 }
