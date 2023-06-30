@@ -1,5 +1,6 @@
 package main;
 
+import helpers.LogHelper;
 import org.telegram.telegrambots.extensions.bots.commandbot.commands.BotCommand;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.User;
@@ -9,9 +10,15 @@ import org.telegram.telegrambots.meta.bots.AbsSender;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.util.List;
+import java.util.logging.Logger;
+
+import static helpers.LogHelper.SESSION_ID;
+import static java.util.logging.Level.SEVERE;
 
 
 public abstract class CommandService extends BotCommand {
+
+    static Logger LOGGER = LogHelper.LOGGER;
 
     public CommandService(String command, String description) {
         super(command, description);
@@ -26,6 +33,7 @@ public abstract class CommandService extends BotCommand {
         try {
             sender.execute(message);
         } catch (TelegramApiException e) {
+            LOGGER.log(SEVERE, "TGApi troubles" + SESSION_ID, e);
             e.printStackTrace();
         }
     }
@@ -39,6 +47,7 @@ public abstract class CommandService extends BotCommand {
         try {
             sender.execute(message);
         } catch (TelegramApiException e) {
+            LOGGER.log(SEVERE, "TGApi troubles" + SESSION_ID, e);
             e.printStackTrace();
         }
     }
@@ -52,6 +61,7 @@ public abstract class CommandService extends BotCommand {
         try {
             sender.execute(message);
         } catch (TelegramApiException e) {
+            LOGGER.log(SEVERE, "TGApi troubles" + SESSION_ID, e);
             e.printStackTrace();
         }
     }

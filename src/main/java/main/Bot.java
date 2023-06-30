@@ -4,6 +4,7 @@ import commands.ClearCommand;
 import commands.HelpCommand;
 import commands.NoCommand;
 import commands.StartCommand;
+import helpers.LogHelper;
 import org.telegram.telegrambots.extensions.bots.commandbot.TelegramLongPollingCommandBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
@@ -11,11 +12,19 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.User;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import static data.Environments.ADMIN;
 import static data.Environments.TELEGRAM_TOKEN;
 import static data.Environments.getEnvValue;
+import static helpers.LogHelper.SESSION_ID;
+import static java.util.logging.Level.SEVERE;
+import static java.util.logging.Level.WARNING;
 
 public class Bot extends TelegramLongPollingCommandBot {
+
+    static Logger LOGGER = LogHelper.LOGGER;
 
     private final String BOT_NAME;
     private final String BOT_TOKEN;
@@ -56,6 +65,7 @@ public class Bot extends TelegramLongPollingCommandBot {
         if (ifAdmin(msg.getFrom())) {
             setAnswer(chatId, msg.getFrom(), answer);
         } else {
+            LOGGER.log(WARNING, "Attempt to access the bot from outside user: " + msg.getFrom() + SESSION_ID);
             setAnswer(chatId, msg.getFrom(), "bot is unavailable, please contact with @eu_v1");
         }
     }
@@ -72,6 +82,7 @@ public class Bot extends TelegramLongPollingCommandBot {
         try {
             execute(answer);
         } catch (TelegramApiException e) {
+            LOGGER.log(SEVERE, "TGApi troubles" + SESSION_ID, e);
             e.printStackTrace();
         }
     }
