@@ -7,10 +7,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static data.Texts.NO_NOTES;
+
 public class Database {
 
     private static final Map<User, List<String>> DB = new HashMap<>();
-    private static final String separator = ") ";
+    private static final String separator = ". ";
 
     private static void addNewUser(User user) {
         DB.put(user, new ArrayList<>());
@@ -28,9 +30,9 @@ public class Database {
     public static String getNotes(User user) {
         if (!ifHasUser(user)) {
             addNewUser(user);
-            return "Нет заметок";
+            return NO_NOTES;
         }
-        if (DB.get(user).size() == 0) return "Нет заметок";
+        if (DB.get(user).size() == 0) return NO_NOTES;
         StringBuilder builder = new StringBuilder();
         int i = 0;
         for (String s : DB.get(user)) {
