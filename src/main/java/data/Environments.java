@@ -3,10 +3,8 @@ package data;
 public enum Environments {
 
     TELEGRAM_TOKEN("BOT_TOKEN"),
-    API_TOKEN("API_TOKEN"),
-    DB_URI("DB_URI"),
-    DB_USER("DB_USER"),
-    DB_PASS("DB_PASS");
+    ADMIN("ADMIN"),
+    DB_URL("DB_URL");
 
     private final String envName;
 
@@ -14,7 +12,11 @@ public enum Environments {
         this.envName = envName;
     }
 
-    public String getEnvName() {
+    public String getName() {
         return envName;
+    }
+
+    public static String getEnvValue(Environments envName) {
+        return System.getenv(envName.getName());
     }
 }
