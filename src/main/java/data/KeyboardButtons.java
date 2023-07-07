@@ -8,7 +8,8 @@ import java.util.Arrays;
 
 public enum KeyboardButtons {
 
-    SHOW_NOTE(new KeyboardButton("Заметки"));
+    SHOW_NOTE(new KeyboardButton("Notes")),
+    DELETE_NOTE(new KeyboardButton("Delete"));
 
     private final KeyboardButton button;
 

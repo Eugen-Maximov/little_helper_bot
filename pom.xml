@@ -7,7 +7,7 @@
     <groupId>org.example</groupId>
     <artifactId>bot_assistant</artifactId>
     <description>helper bot for quick notes</description>
-    <version>0.0.2-dev</version>
+    <version>0.0.5-dev</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -27,7 +27,7 @@
         <dependency>
             <groupId>org.telegram</groupId>
             <artifactId>telegrambots</artifactId>
-            <version>6.1.0</version>
+            <version>6.5.0</version>
         </dependency>
         <dependency>
             <groupId>org.telegram</groupId>
@@ -40,10 +40,11 @@
             <artifactId>maven-model</artifactId>
             <version>3.8.5</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
         <dependency>
-            <groupId>biz.paluch.redis</groupId>
-            <artifactId>lettuce</artifactId>
-            <version>4.5.0.Final</version>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.5.4</version>
         </dependency>
         <!-- Tests -->
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->

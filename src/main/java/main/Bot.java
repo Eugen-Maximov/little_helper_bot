@@ -14,9 +14,10 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.util.logging.Logger;
 
-import static data.Environments.ADMIN;
 import static data.Environments.TELEGRAM_TOKEN;
 import static data.Environments.getEnvValue;
+import static data.Texts.UNREGISTERED_USER_TEXT;
+import static helpers.AllowedUsersHelper.ifAdmin;
 import static helpers.LogHelper.SESSION_ID;
 import static java.util.logging.Level.SEVERE;
 import static java.util.logging.Level.WARNING;
@@ -27,7 +28,6 @@ public class Bot extends TelegramLongPollingCommandBot {
 
     private final String BOT_NAME;
     private final String BOT_TOKEN;
-    private final Long ADMIN_TOKEN = Long.valueOf(getEnvValue(ADMIN));
 
     private final NoCommand noCommand;
 
@@ -65,7 +65,7 @@ public class Bot extends TelegramLongPollingCommandBot {
             setAnswer(chatId, msg.getFrom(), answer);
         } else {
             LOGGER.log(WARNING, "Attempt to access the bot from outside user: " + msg.getFrom() + SESSION_ID);
-            setAnswer(chatId, msg.getFrom(), "bot is unavailable, please contact with @eu_v1");
+            setAnswer(chatId, msg.getFrom(), UNREGISTERED_USER_TEXT);
         }
     }
 
@@ -93,9 +93,5 @@ public class Bot extends TelegramLongPollingCommandBot {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
-    }
-
-    private boolean ifAdmin(User user) {
-        return user.getId().equals(ADMIN_TOKEN);
     }
 }

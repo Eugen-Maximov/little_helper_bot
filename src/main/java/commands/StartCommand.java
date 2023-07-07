@@ -7,6 +7,7 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMar
 import org.telegram.telegrambots.meta.bots.AbsSender;
 
 import static data.KeyboardButtons.getMenu;
+import static data.Texts.START_MESSAGE;
 
 
 public class StartCommand extends CommandService {
@@ -17,14 +18,13 @@ public class StartCommand extends CommandService {
 
     @Override
     public void execute(AbsSender absSender, User user, Chat chat, String[] strings) {
-        String message = "Привет, я Notepad Bot!\nПозволяю быстро записывать информацию. Просто напиши что-нибудь в чат";
         ReplyKeyboardMarkup keyboard = getMenu();
         sendAnswer(
                 absSender,
                 chat.getId(),
                 this.getCommandIdentifier(),
                 user,
-                message,
+                START_MESSAGE,
                 keyboard
         );
     }

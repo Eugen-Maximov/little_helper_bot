@@ -3,8 +3,8 @@ package data;
 public enum Environments {
 
     TELEGRAM_TOKEN("BOT_TOKEN"),
-    API_TOKEN("API_TOKEN"),
-    ADMIN("ADMIN");
+    ADMIN("ADMIN"),
+    DB_URL("DB_URL");
 
     private final String envName;
 

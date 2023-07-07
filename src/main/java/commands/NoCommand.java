@@ -4,8 +4,8 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.User;
 
-import static data.Database.createNote;
-import static data.Database.getNotes;
+import static data.NotesController.createNote;
+import static data.NotesController.getNotes;
 import static data.KeyboardButtons.getMenu;
 
 public class NoCommand {
@@ -19,11 +19,10 @@ public class NoCommand {
 
     private String getMessageText(User user, Message message) {
         switch (message.getText()) {
-            case "Заметки":
+            case "Notes":
                 return getNotes(user);
             default:
-                createNote(user, message.getText());
-                return "Note added";
+                return createNote(user, message.getText());
         }
     }
 

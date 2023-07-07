@@ -1,10 +1,13 @@
 package commands;
 
-import data.Texts;
+import main.Bot;
 import main.CommandService;
+import org.telegram.telegrambots.extensions.bots.commandbot.commands.IBotCommand;
 import org.telegram.telegrambots.meta.api.objects.Chat;
 import org.telegram.telegrambots.meta.api.objects.User;
 import org.telegram.telegrambots.meta.bots.AbsSender;
+
+import static data.Texts.HELP_MESSAGE;
 
 
 public class HelpCommand extends CommandService {
@@ -20,7 +23,21 @@ public class HelpCommand extends CommandService {
                 chat.getId(),
                 this.getCommandIdentifier(),
                 user,
-                Texts.HELP_MESSAGE
+                createMessage()
+        );
+    }
+
+    private String createMessage() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (IBotCommand command : new Bot().getRegisteredCommands()) {
+            stringBuilder.append("/");
+            stringBuilder.append(command.getCommandIdentifier());
+            stringBuilder.append(" - ");
+            stringBuilder.append(command.getDescription());
+            stringBuilder.append("\n");
+        }
+        return HELP_MESSAGE.replace(
+                "%commands%", stringBuilder.toString()
         );
     }
 }
