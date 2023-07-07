@@ -19,7 +19,7 @@ Actual version - 0.0.5 - dev
   2. Delete notes from DB
 - ### 0.0.5 - dev ✅:
   1. Clear DB
-- ### 0.0.6 - dev:
+- ### 0.0.6 - dev ✅:
   1. Delete 1 note method
 - ### 0.0.7 - dev:
   1. Limits of notes per page
