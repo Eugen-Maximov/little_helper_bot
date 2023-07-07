@@ -1,4 +1,4 @@
-package helpersTests;
+package helpers;
 
 import org.testng.annotations.Test;
 

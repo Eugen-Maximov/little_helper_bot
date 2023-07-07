@@ -7,6 +7,7 @@ import org.telegram.telegrambots.meta.api.objects.Chat;
 import org.telegram.telegrambots.meta.api.objects.User;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 
+import static data.KeyboardButtons.getMainMenu;
 import static data.Texts.HELP_MESSAGE;
 
 
@@ -23,7 +24,8 @@ public class HelpCommand extends CommandService {
                 chat.getId(),
                 this.getCommandIdentifier(),
                 user,
-                createMessage()
+                createMessage(),
+                getMainMenu()
         );
     }
 

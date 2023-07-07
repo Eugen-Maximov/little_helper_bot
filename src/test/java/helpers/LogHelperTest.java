@@ -1,6 +1,5 @@
-package helpersTests;
+package helpers;
 
-import helpers.LogHelper;
 import org.testng.annotations.Test;
 
 import static org.hamcrest.CoreMatchers.is;

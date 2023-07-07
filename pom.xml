@@ -7,7 +7,7 @@
     <groupId>org.example</groupId>
     <artifactId>bot_assistant</artifactId>
     <description>helper bot for quick notes</description>
-    <version>0.0.5-dev</version>
+    <version>0.0.6-dev</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>

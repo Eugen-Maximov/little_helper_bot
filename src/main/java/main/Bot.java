@@ -1,8 +1,10 @@
 package main;
 
 import commands.ClearCommand;
+import commands.DeleteCommand;
 import commands.HelpCommand;
 import commands.NoCommand;
+import commands.NotesCommand;
 import commands.StartCommand;
 import helpers.LogHelper;
 import org.telegram.telegrambots.extensions.bots.commandbot.TelegramLongPollingCommandBot;
@@ -35,9 +37,11 @@ public class Bot extends TelegramLongPollingCommandBot {
         this.BOT_NAME = "Little Helper Bot";
         this.BOT_TOKEN = getEnvValue(TELEGRAM_TOKEN);
         this.noCommand = new NoCommand();
-        register(new StartCommand("start", "start bot"));
+        register(new StartCommand("start", "Start bot"));
         register(new HelpCommand("help", "FAQ"));
         register(new ClearCommand("clear", "⚠️Clear all notes⚠️"));
+        register(new NotesCommand("notes", "Get saved notes"));
+        register(new DeleteCommand("delete", "Remove 1 note by its number"));
         getRegisteredCommands();
     }
 

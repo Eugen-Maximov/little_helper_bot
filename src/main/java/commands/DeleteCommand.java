@@ -5,11 +5,12 @@ import org.telegram.telegrambots.meta.api.objects.Chat;
 import org.telegram.telegrambots.meta.api.objects.User;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 
-import static helpers.NotesController.clearAllUserNotes;
+import static data.KeyboardButtons.getMainMenu;
+import static helpers.NotesController.deleteUserNote;
 
-public class ClearCommand extends CommandService {
+public class DeleteCommand extends CommandService {
 
-    public ClearCommand(String command, String description) {
+    public DeleteCommand(String command, String description) {
         super(command, description);
     }
 
@@ -20,7 +21,8 @@ public class ClearCommand extends CommandService {
                 chat.getId(),
                 this.getCommandIdentifier(),
                 user,
-                clearAllUserNotes(user)
+                deleteUserNote(user, strings),
+                getMainMenu()
         );
     }
 }

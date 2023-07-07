@@ -14,14 +14,14 @@ public class DataBaseOperations {
 
     private static final DataBaseConnectionHelper DB = new DataBaseConnectionHelper();
 
-    public static List<NoteDbObject> selectUserNotesByUserId(User user) {
+    protected static List<NoteDbObject> selectUserNotesByUserId(User user) {
         String userId = user.getId().toString();
         return DB.processingQuery(
                 GET_ALL_NOTES_BY_USER.replace("%user_id%", userId)
         );
     }
 
-    public static void insertNewNote(User user, String note) {
+    protected static void insertNewNote(User user, String note) {
         String userId = user.getId().toString();
         String query = SET_USER_NOTE.replace("%user_id%", userId);
         DB.processingQueryWithoutResult(
@@ -29,14 +29,14 @@ public class DataBaseOperations {
         );
     }
 
-    public static void deleteNotes(User user) {
+    protected static void clearNotes(User user) {
         String userId = user.getId().toString();
         DB.processingQueryWithoutResult(
                 DELETE_ALL_USER_NOTES.replace("%user_id%", userId)
         );
     }
 
-    public static void deleteNote(User user, String noteToDelete) {
+    protected static void deleteNote(User user, String noteToDelete) {
         String userId = user.getId().toString();
         String query = DELETE_USER_NOTE.replace("%user_id%", userId);
         DB.processingQueryWithoutResult(

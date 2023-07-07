@@ -25,7 +25,7 @@ public enum KeyboardButtons {
         return button.getText();
     }
 
-    public static ReplyKeyboardMarkup getMenu() {
+    public static ReplyKeyboardMarkup getMainMenu() {
         ReplyKeyboardMaker keyboardMaker = new ReplyKeyboardMaker();
         return keyboardMaker.createKeyboard(
                 Arrays.asList(
