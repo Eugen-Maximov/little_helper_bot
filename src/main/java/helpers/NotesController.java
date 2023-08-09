@@ -12,7 +12,7 @@ import static data.Texts.CLEAR_MESSAGE;
 import static data.Texts.INDENT;
 import static data.Texts.NOTE_ADDED;
 import static data.Texts.NO_NOTES;
-import static data.Texts.NO_NOTES_TO_DELETE;
+import static data.Texts.CANNOT_FIND_NOTE_TO_DELETE;
 import static data.Texts.SEPARATOR;
 import static data.Texts.SUCCESSFUL_REMOVAL;
 
@@ -39,14 +39,6 @@ public class NotesController extends DataBaseOperations {
         return builder.toString();
     }
 
-    public static List<String> getNotesAsListToDeleteMethod(User user) {
-        List<String> list = new ArrayList<>();
-        for (NoteDbObject object : selectUserNotesByUserId(user)) {
-            list.add(object.getUserNote());
-        }
-        return list;
-    }
-
     public static String clearAllUserNotes(User user) {
         clearNotes(user);
         return CLEAR_MESSAGE;
@@ -54,19 +46,31 @@ public class NotesController extends DataBaseOperations {
 
     public static String deleteUserNote(User user, String[] noteToDeleteParam) {
         StringBuilder sb = new StringBuilder();
-        if (noteToDeleteParam.length != 1) {
+        if (noteToDeleteParam.length == 0) {
             sb.append(CANNOT_DELETE_MESSAGE);
         } else {
-            int noteNum = Integer.parseInt(noteToDeleteParam[0]);
-            List<String> listToDelete = getNotesAsListToDeleteMethod(user);
-            try {
-                deleteNote(user, listToDelete.get(noteNum));
-                sb.append(SUCCESSFUL_REMOVAL);
-            } catch (IndexOutOfBoundsException e) {
-                sb.append(NO_NOTES_TO_DELETE);
-                sb.append(noteNum);
+            List<String> listToDelete = getNotesAsList(user);
+            for (String s : noteToDeleteParam) {
+                int noteNum = Integer.parseInt(s);
+                try {
+                    deleteNote(user, listToDelete.get(noteNum));
+                    sb.append(SUCCESSFUL_REMOVAL.replace("%noteNum%", s));
+                    sb.append("\n");
+                } catch (IndexOutOfBoundsException e) {
+                    sb.append(CANNOT_FIND_NOTE_TO_DELETE);
+                    sb.append(noteNum);
+                    sb.append("\n");
+                }
             }
         }
         return sb.toString();
+    }
+
+    private static List<String> getNotesAsList(User user) {
+        List<String> list = new ArrayList<>();
+        for (NoteDbObject object : selectUserNotesByUserId(user)) {
+            list.add(object.getUserNote());
+        }
+        return list;
     }
 }

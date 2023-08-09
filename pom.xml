@@ -7,7 +7,7 @@
     <groupId>org.example</groupId>
     <artifactId>bot_assistant</artifactId>
     <description>helper bot for quick notes</description>
-    <version>0.0.6-dev</version>
+    <version>0.0.7-dev</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -102,6 +102,18 @@
                 <groupId>com.heroku.sdk</groupId>
                 <artifactId>heroku-maven-plugin</artifactId>
                 <version>3.0.3</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>MainApplication</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
             </plugin>
         </plugins>
     </build>

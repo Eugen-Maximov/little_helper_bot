@@ -24,6 +24,7 @@ Actual version - 0.0.5 - dev
 - ### 0.0.7 - dev:
   1. Limits of notes per page
   2. Note pages with inline keyboard
+  3. Removing more than 1 note by ids ✅
 - ### 0.0.8 - dev:
   1. Inline keyboard deleting
 

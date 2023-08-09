@@ -26,8 +26,8 @@ public class Texts {
     public static final String SEPARATOR = ". ";
     public static final String INDENT = "\n\n";
     public static final String CANNOT_DELETE_MESSAGE = "Incorrect format of the command. " +
-            "Please send /delete + 1 number of the note to delete.\n" +
+            "Please send /delete + numbers of the notes with spaces to delete.\n" +
             "You can see saved notes /notes";
-    public static final String NO_NOTES_TO_DELETE = "Cannot find note to delete by note number: ";
-    public static final String SUCCESSFUL_REMOVAL = "Note was successfully deleted";
+    public static final String CANNOT_FIND_NOTE_TO_DELETE = "Cannot find note to delete by note number: ";
+    public static final String SUCCESSFUL_REMOVAL = "Note %noteNum% was successfully deleted";
 }

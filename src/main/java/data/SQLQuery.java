@@ -2,7 +2,7 @@ package data;
 
 public class SQLQuery {
 
-    //TODO change to prod db table name
+    // TODO change to prod db table name
     private static final String TABLE_NAME = "local_debug_table";
 
     public static final String GET_ALL_NOTES_BY_USER = "SELECT user_id, user_note " +
