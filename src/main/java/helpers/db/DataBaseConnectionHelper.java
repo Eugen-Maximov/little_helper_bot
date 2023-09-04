@@ -1,5 +1,6 @@
 package helpers.db;
 
+import data.Environments;
 import helpers.LogHelper;
 
 import java.sql.Connection;
@@ -11,14 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+import static data.Environments.getEnvValue;
 import static helpers.LogHelper.SESSION_ID;
 import static java.util.logging.Level.SEVERE;
 
 public class DataBaseConnectionHelper {
 
     static Logger LOGGER = LogHelper.LOGGER;
-    //TODO getEnvValue(Environments.DB_URL);
-    private static final String DB_URL = "jdbc:postgresql://localhost:5432/postgres";
+    private static final String DB_URL = "jdbc:" + getEnvValue(Environments.DB_URL);
     private static Connection connection;
 
     public List<NoteDbObject> processingQuery(String sqlQuery) {

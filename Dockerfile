@@ -1,3 +1,3 @@
 FROM openjdk:11
-COPY target/docker-java-jar-0.0.1-SNAPSHOT.jar app.jar
+COPY target/bot_assistant-0.0.7-dev.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
