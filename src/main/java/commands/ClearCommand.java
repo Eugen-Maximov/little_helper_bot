@@ -5,7 +5,6 @@ import org.telegram.telegrambots.meta.api.objects.Chat;
 import org.telegram.telegrambots.meta.api.objects.User;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 
-import static helpers.NotesController.clearAllUserNotes;
 
 public class ClearCommand extends CommandService {
 
@@ -20,7 +19,7 @@ public class ClearCommand extends CommandService {
                 chat.getId(),
                 this.getCommandIdentifier(),
                 user,
-                clearAllUserNotes(user)
-        );
+                "Doesn't exist"
+                );
     }
 }

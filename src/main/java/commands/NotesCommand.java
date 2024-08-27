@@ -6,8 +6,8 @@ import org.telegram.telegrambots.meta.api.objects.User;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 
+import static api.NotionController.getAllNotesList;
 import static data.KeyboardButtons.getMainMenu;
-import static helpers.NotesController.getNotes;
 
 public class NotesCommand extends CommandService {
 
@@ -23,7 +23,7 @@ public class NotesCommand extends CommandService {
                 chat.getId(),
                 this.getCommandIdentifier(),
                 user,
-                getNotes(user),
+                getAllNotesList(),
                 keyboard
         );
     }

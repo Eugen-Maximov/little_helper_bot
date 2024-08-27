@@ -6,7 +6,6 @@ import org.telegram.telegrambots.meta.api.objects.User;
 import org.telegram.telegrambots.meta.bots.AbsSender;
 
 import static data.KeyboardButtons.getMainMenu;
-import static helpers.NotesController.deleteUserNote;
 
 public class DeleteCommand extends CommandService {
 
@@ -21,7 +20,8 @@ public class DeleteCommand extends CommandService {
                 chat.getId(),
                 this.getCommandIdentifier(),
                 user,
-                deleteUserNote(user, strings),
+                "Doesn't exist",
+                //deleteUserNote(user, strings),
                 getMainMenu()
         );
     }

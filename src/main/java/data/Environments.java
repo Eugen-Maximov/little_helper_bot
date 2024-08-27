@@ -4,7 +4,7 @@ public enum Environments {
 
     TELEGRAM_TOKEN("BOT_TOKEN"),
     ADMIN("ADMIN"),
-    DB_URL("DB_URL");
+    NOTION_KEY("NOTION_KEY");
 
     private final String envName;
 

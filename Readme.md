@@ -27,6 +27,8 @@ Actual version - 0.0.5 - dev
   3. Removing more than 1 note by ids ✅
 - ### 0.0.8 - dev:
   1. Inline keyboard deleting
+  2. Deploy app with jar version
+  3. Automatic deploy after commit
 
 tbd..
 
